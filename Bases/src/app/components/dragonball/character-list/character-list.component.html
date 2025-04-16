@@ -1,0 +1,14 @@
+<h3>{{listName()}}</h3>
+    <ul class="row">
+      <!-- Los arreglos $index son opcionales-->
+      @for (character of characters(); track character.id; let idx = $index) {
+        @if (character.power < 40) {
+          <li>
+            <span> {{idx}} - {{character.name}} --- </span>
+            <!-- De esta manera podemos poner condicionales a una clase -->
+            <strong [class.text-danger]="character.power > 20"
+              [class.text-primary]="character.power <= 20">{{character.power}}</strong>
+          </li>
+        }
+      }
+    </ul>
